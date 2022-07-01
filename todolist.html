@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="D:\bootstrap-5.0.2-dist\todolist.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="box">
+        <h1>To-Do List</h1>
+        <input id="todo-text" type="text" placeholder="Add an item!" >
+        <button id="btn">Submit</button>              
+    
+    <ul id="todo-list"/*class= "tod"*/></ul>
+        </div>
+    <script>
+        document.getElementById("btn").addEventListener("click", submit)
+        function submit(){
+            let todo_text = document.getElementById("todo-text").value;    
+            if(todo_text==""){
+                alert("Fill the empty space with a value");
+            }else{
+            let todo_list = document.getElementById("todo-list");
+            let li = document.createElement("li");
+            li.textContent = todo_text;
+             todo_list.appendChild(li);
+
+             let a = document.createElement("button")
+              a.textContent= "x"
+              a.href= "javascript:void(0)"
+              a.className= "remove"
+              a.style.marginLeft= "100px"
+              a.style.marginTop= "20px"
+              a.style.backgroundColor= "red"
+              li.appendChild(a);
+              //
+             
+        }
+        }
+            let btn = document.querySelector("ul")
+            btn.addEventListener("click", function(b){
+                let todo_list = document.getElementById("todo-list");
+                let li= b.target.parentNode;
+                todo_list.removeChild(li)
+             })
+    </script>                                       
+</body>
+</html>
